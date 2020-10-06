@@ -102,13 +102,6 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-
-@media screen and (prefers-color-scheme: dark) {
-    body {
-        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
-    }
-}
-
 nav{
     background-color: rgb(15,100,131);
 }
@@ -135,4 +128,21 @@ nav{
 
 td, th {
     width: 33.333%;
+}
+
+th {
+    background-color: #12759a;
+}
+
+tr {
+    background-color: #e9f7fc;
+}
+
+tr:nth-child(even) {
+    background-color: #fafdfe;
+}
+
+td,
+th {
+  border-radius: 0px;
 }
