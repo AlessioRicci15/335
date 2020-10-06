@@ -112,3 +112,27 @@ h1 {
 nav{
     background-color: rgb(15,100,131);
 }
+
+.btn{
+    background-color: rgb(15, 100, 131);
+}
+
+.btn-finance{
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    color: white;
+    text-align: center;
+    height: calc( 50% - 10vh);
+    width: calc( 100% - 10vw);
+    background-color: rgb(15, 100, 131);
+}
+
+.home{
+    background-color: rgb(15,100,131);
+}
+
+td, th {
+    width: 33.333%;
+}

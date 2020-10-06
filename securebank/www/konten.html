@@ -45,11 +45,33 @@
             <img src="img/logo.png" style="height: 10vh;display: block; margin-left: auto;margin-right: auto;">
             <div class="nav-content">
               <ul class="tabs tabs-transparent">
-                <li class="tab"><a class="active" href="finanzen.html">Finanzen</a></li>
-                <li class="tab"><a href="benutzerdaten.html">Benutzerdaten</a></li>
+                <li class="tab"><a class="active" href="finanzen.html">Finance</a></li>
+                <li class="tab"><a href="benutzerdaten.html">Userdata</a></li>
               </ul>
             </div>
         </nav>
+
+        <table id="konten">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Currency</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <script id="myTemplateKonto" type="x-tmpl-mustache">
+            {{#konten}}
+                <tr>
+                    <td>{{konto_Name}}/></td>
+                    <td>{{konto_Currency}}</td>
+                    <td>{{konto_Amount}}</td>
+                </tr>
+            {{/konten}}
+        </script>
+
         <script src="cordova.js"></script>
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>

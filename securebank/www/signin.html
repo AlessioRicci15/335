@@ -36,20 +36,53 @@
         <meta name="color-scheme" content="light dark">
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <link rel="stylesheet" href="css/index.css">
         <title>SecureBank</title>
     </head>
-    <body>
-        <nav class="nav-extended">
-            <img src="img/logo.png" style="height: 10vh;display: block; margin-left: auto;margin-right: auto;">
-            <div class="nav-content">
-              <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="finanzen.html">Finanzen</a></li>
-                <li class="tab"><a class="active" href="benutzerdaten.html">Benutzerdaten</a></li>
-              </ul>
-            </div>
-        </nav>
+    <body class="home">
+
+        
+        <a href="index.html" style="color: white;"><i style="margin: 15px;" class="material-icons small">arrow_back</i></a>
+        <img src="img/logo.png" style="height: 12vh;display: block; margin-left: auto;margin-right: auto;margin-top: 2vh;">
+
+        <div class="row" style="padding-top: 15px;margin-bottom: 0;">
+            <form class="col s12" method="POST">
+                <div class="row">
+                    <div class="input-field col s11">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s11">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s11">    
+                    <input id="birthday" type="text" class="datepicker validate">       
+                    <label for="birthday">Birthday</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s11">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s11">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                    </div>
+                </div>
+                <button style="float: right; background-color: black;" class="btn" type="submit">Submit</button> 
+            </form>
+        </div>
+        
         <script src="cordova.js"></script>
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>

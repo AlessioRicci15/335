@@ -40,16 +40,30 @@
         <link rel="stylesheet" href="css/index.css">
         <title>SecureBank</title>
     </head>
-    <body>
-        <nav class="nav-extended">
-            <img src="img/logo.png" style="height: 10vh;display: block; margin-left: auto;margin-right: auto;">
-            <div class="nav-content">
-              <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="finanzen.html">Finanzen</a></li>
-                <li class="tab"><a href="benutzerdaten.html">Benutzerdaten</a></li>
-              </ul>
-            </div>
-        </nav>
+    <body class="home">
+
+        <img src="img/logo.png" style="height: 15vh;display: block; margin-left: auto;margin-right: auto;margin-top: 20vh;">
+
+        <div style="margin-right: 5vw;margin-left: 5vw;">
+            <form method="POST" >
+                <div>
+                    <div class="input-field">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                    </div>
+                </div>
+                <button style="height: 8vh;width : 35vw;display: block; margin-left: auto;margin-right: auto;background-color: black;font-size: large;" class="btn" type="submit">Submit</button> 
+            </form>
+        </div>
+        <div style="margin-right: 5vw;margin-left: 5vw;width: auto;text-align: center;margin-top: 2vh;">
+            <a style="color: white;text-decoration: underline;" href="signin.html">Sign in</a>
+        </div>
         
         <script src="cordova.js"></script>
     
