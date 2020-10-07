@@ -137,3 +137,9 @@ td,
 th {
   border-radius: 0px;
 }
+
+.btn-finance{
+    height: 15vh;
+    padding-top: 2vh;
+    font-size: xx-large;
+}
