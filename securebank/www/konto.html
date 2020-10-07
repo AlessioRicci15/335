@@ -1,0 +1,23 @@
+<form class="col s12">
+    <div class="row">
+        <div class="input-field col s11">
+            <input id="kontoname" disabled type="text" class="validate">
+            <label for="kontoname">Name</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s11">
+            <input id="kontowährung" type="text" class="validate">
+            <label for="kontowährung">Currency</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s11">
+            <input id="kontowert" type="text" class="validate">
+            <label for="kontowert">Amount</label>
+        </div>
+    </div>
+    <button style="float: right;" class="btn" onclick="backkonto()">Cancel</button>
+    <button style="float: left;" class="btn"
+        onclick="kontospeichern(document.getElementById(kontoname).value)">Submit</button>
+</form>

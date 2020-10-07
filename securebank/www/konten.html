@@ -58,16 +58,25 @@
                     <th>Name</th>
                     <th>Currency</th>
                     <th>Amount</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="konten"></tbody>
         </table>
+        
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h4 id="modat_titel"></h4>
+                <p id="modat_inhalt"></p>
+            </div>
+        </div>
 
         <script id="myTemplateKonto" type="x-tmpl-mustache">
             <tr>
                 <td>{{name}}</td>
                 <td>{{currency}}</td>
                 <td>{{amount}}</td>
+                <td><button class="btn" onclick="kontoverwalten({{name}})">Edit</button></td>
             </tr>
         </script>
 
