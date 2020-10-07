@@ -37,6 +37,8 @@
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         <link rel="stylesheet" href="css/index.css">
         <title>SecureBank</title>
     </head>
@@ -63,22 +65,22 @@
             </thead>
             <tbody id="konten"></tbody>
         </table>
-        
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <h4 id="modat_titel"></h4>
-                <p id="modat_inhalt"></p>
-            </div>
-        </div>
 
         <script id="myTemplateKonto" type="x-tmpl-mustache">
             <tr>
                 <td>{{name}}</td>
                 <td>{{currency}}</td>
                 <td>{{amount}}</td>
-                <td><button class="btn" onclick="kontoverwalten({{name}})">Edit</button></td>
+                <td><button data-Name={{name}} class="btn edit">Edit</button></td>
             </tr>
         </script>
+
+        <div style="padding-bottom: 5vh;" id="modal" class="modal">
+            <div class="modal-content">
+                <h4 id="modat_titel"></h4>
+                <p id="modat_inhalt"></p>
+            </div>
+        </div>
 
         <script src="cordova.js"></script>
     

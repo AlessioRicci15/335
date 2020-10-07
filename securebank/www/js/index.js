@@ -76,7 +76,7 @@ firebase
       if (typeof email != "undefined" && email != null) {
         email.value = json.kunden[0].email;
       }
-
+      M.updateTextFields();
       var mtpl = $("#myTemplateKonto").html();
       if (typeof mtpl != "undefined" && mtpl != null) {
         json.kunden[0].konten.forEach((element) => {
@@ -99,12 +99,102 @@ firebase
         });
       }
 
-      M.updateTextFields();
+      $(".modal").modal();
+
+      $(".editK").click(function (e) {
+        e.preventDefault();
+        var currency = $(this).attr("data-currency");
+        var id = 0;
+        var ref = firebase.database().ref();
+        ref.on("value", function (snapshot) {
+          var json = snapshot.val();
+          json.kunden[0].kreditkarten.forEach((element) => {
+            if (element.currency !== currency) {
+              id++;
+            }
+          });
+        });
+        $("#modat_titel").html("Kreditkarte bearbeiten");
+        $("#modat_inhalt").load("karte.html", function () {
+          $("#kartenausgaben").val(json.kunden[0].kreditkarten[id].spend);
+          $("#kartenwährung").val(json.kunden[0].kreditkarten[id].currency);
+          $("#kartenlimite").val(json.kunden[0].kreditkarten[id].limit);
+          M.updateTextFields();
+          var mymodal = M.Modal.getInstance($(".modal"));
+          mymodal.open();
+          $("#speichernK").click(function () {
+            var id = 0;
+            var currency = document.getElementById("kartenwährung").value;
+            var ref = firebase.database().ref();
+            ref.on("value", function (snapshot) {
+              var json = snapshot.val();
+              json.kunden[0].kreditkarten.forEach((element) => {
+                if (element.currency !== currency) {
+                  id++;
+                }
+              });
+            });
+            firebase
+              .database()
+              .ref("kunden/" + 0 + "/kreditkarten/" + id + "/")
+              .update({
+                spend: document.getElementById("kartenausgaben").value,
+                limit: document.getElementById("kartenlimite").value,
+                currency: document.getElementById("kartenwährung").value,
+              });
+            var mymodal = M.Modal.getInstance($(".modal"));
+            mymodal.close();
+          });
+        });
+      });
+
+      $(".edit").click(function (e) {
+        e.preventDefault();
+        var name = $(this).attr("data-Name");
+        var id = 0;
+        var ref = firebase.database().ref();
+        ref.on("value", function (snapshot) {
+          var json = snapshot.val();
+          json.kunden[0].konten.forEach((element) => {
+            if (element.name !== name) {
+              id++;
+            }
+          });
+        });
+        $("#modat_titel").html("Konto bearbeiten");
+        $("#modat_inhalt").load("konto.html", function () {
+          $("#kontoname").val(json.kunden[0].konten[id].name);
+          $("#kontowährung").val(json.kunden[0].konten[id].currency);
+          $("#kontowert").val(json.kunden[0].konten[id].amount);
+          M.updateTextFields();
+          var mymodal = M.Modal.getInstance($(".modal"));
+          mymodal.open();
+          $("#speichern").click(function () {
+            var id = 0;
+            var name = document.getElementById("kontoname").value;
+            var ref = firebase.database().ref();
+            ref.on("value", function (snapshot) {
+              var json = snapshot.val();
+              json.kunden[0].konten.forEach((element) => {
+                if (element.name !== name) {
+                  id++;
+                }
+              });
+            });
+            firebase
+              .database()
+              .ref("kunden/" + 0 + "/konten/" + id + "/")
+              .update({
+                name: document.getElementById("kontoname").value,
+                amount: document.getElementById("kontowert").value,
+                currency: document.getElementById("kontowährung").value,
+              });
+            var mymodal = M.Modal.getInstance($(".modal"));
+            mymodal.close();
+          });
+        });
+      });
     });
-  })
-  .catch(function (error) {
-    var errorCode = error.code;
-    var errorMessage = error.message;
   });
 
 function login() {
@@ -148,89 +238,37 @@ function signin() {
         {
           name: "Sparkonto",
           currency: "CHF",
-          amount: "0"
-        }
+          amount: "0",
+        },
       ],
       kreditkarten: [
         {
           currency: "CHF",
           spend: "0",
-          limit: "1000"
-        }
-      ]
+          limit: "1000",
+        },
+      ],
     });
   window.location.href = "index.html";
 }
 
 function updateuser() {
-    var count = 0;
-    var ref = firebase.database().ref();
-    ref.on("value", function (snapshot) {
-      var json = snapshot.val().kunden;
-      var keys = Object.keys(json_elemente);
-      json.kunden.forEach(element => {
-          
-      });
+  var count = 0;
+  var ref = firebase.database().ref();
+  ref.on("value", function (snapshot) {
+    var json = snapshot.val().kunden;
+    var keys = Object.keys(json_elemente);
+    json.kunden.forEach((element) => {});
+  });
+
+  firebase
+    .database()
+    .ref("kunden/" + count + "/")
+    .update({
+      vorname: document.getElementById("first_name").value,
+      nachname: document.getElementById("last_name").value,
+      password: document.getElementById("password").value,
+      email: document.getElementById("email").value,
+      geburtstag: document.getElementById("birthday").value,
     });
-  
-    firebase
-      .database()
-      .ref("kunden/" + count + "/")
-      .update({
-        vorname: document.getElementById("first_name").value,
-        nachname: document.getElementById("last_name").value,
-        password: document.getElementById("password").value,
-        email: document.getElementById("email").value,
-        geburtstag: document.getElementById("birthday").value
-      });
-  }
-
-function kontoverwalten(name) {debugger;
-    window.location.href = "konto.html";
-    var id = 0;
-    var ref = firebase.database().ref();
-    ref.on("value", function (snapshot) {
-      var json = snapshot.val().kunden;
-      json.kunden[0].konten.forEach(element => {
-          if (element.name !== name){
-            id++;
-          }
-      });
-    });
-
-    var kontoname = document.getElementById("kontoname");
-    kontoname.value = json.kunden[0].konten[id].name;
-    var kontowährung = document.getElementById("kontowährung");
-    kontowährung.value = json.kunden[0].konten[id].currency;
-    var kontowert = document.getElementById("kontowert");
-    kontowert.value = json.kunden[0].konten[id].amount;
-      
-  }
-
-  function backkonto() {
-      debugger;
-    window.location.href = "konten.html";
-  }
-
-  function kontospeichern(name) {
-    var id = 0;
-    var ref = firebase.database().ref();
-    ref.on("value", function (snapshot) {
-      var json = snapshot.val().kunden;
-      var keys = Object.keys(json_elemente);
-      json.kunden[0].konten.forEach(element => {
-          if (element.name !== name){
-            id++;
-          }
-      });
-    });
-  
-    firebase
-      .database()
-      .ref("kunden/konten/" + id + "/")
-      .update({
-        name: document.getElementById("kontoname").value,
-        amount: document.getElementById("kontowert").value,
-        currency: document.getElementById("kontowährung").value
-      });
-  }
+}

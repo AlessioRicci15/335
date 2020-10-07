@@ -58,6 +58,7 @@
                     <th>Currency</th>
                     <th>Spend</th>
                     <th>Limit</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -68,8 +69,16 @@
                 <td>{{currency}}</td>
                 <td>{{spend}}</td>
                 <td>{{limit}}</td>
+                <td><button data-currency={{currency}} class="btn editK">Edit</button></td>
             </tr>
         </script>
+
+        <div style="padding-bottom: 5vh;" id="modal" class="modal">
+            <div class="modal-content">
+                <h4 id="modat_titel"></h4>
+                <p id="modat_inhalt"></p>
+            </div>
+        </div>
 
         <script src="cordova.js"></script>
     
