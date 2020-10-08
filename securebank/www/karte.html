@@ -1,22 +1,23 @@
 <form class="col s12">
     <div class="row">
         <div class="input-field col s11">
-            <input id="kartenwährung" disabled type="text" class="validate">
+            <input id="kartenwährung" required disabled type="text" class="validate">
             <label for="kartenwährung">Currency</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s11">
-            <input id="kartenausgaben" type="text" class="validate">
+            <input id="kartenausgaben" required type="number" class="validate">
             <label for="kartenausgaben">Spend</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s11">
-            <input id="kartenlimite" type="text" class="validate">
+            <input id="kartenlimite" required type="number" class="validate">
             <label for="kartenlimite">Limit</label>
         </div>
     </div>
     <button style="float: right;" class="btn" id="cancel">Cancel</button>
+    <button style="margin-right: auto;margin-right: auto;" class="btn" id="deletK">Delete</button>
     <button style="float: left;" class="btn" id="speichernK">Submit</button>
 </form>

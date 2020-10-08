@@ -1,0 +1,20 @@
+{
+    "android": {
+        "apk": {
+            "keystore": "IhreAPP.keystore",
+            "storePassword": "Alessio15",
+            "alias": "ihreapp",
+            "password" : "Alessio15",
+            "keystoreType": "",
+            "packageType": "apk"
+        },
+        "release": {
+            "keystore": "IhreAPP.keystore",
+            "storePassword": "Alessio15",
+            "alias": "ihreapp",
+            "password" : "Alessio15",
+            "keystoreType": "jks",
+            "packageType": "bundle"
+        }
+    }
+}

@@ -45,10 +45,10 @@
             <img src="img/logo.png" style="height: 10vh;display: block; margin-left: auto;margin-right: auto;">
             <a style="float: right; right: 2vw;top: 0; position: absolute;" href="index.html">Log out</a>
             <div class="nav-content">
-              <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="finanzen.html">Finance</a></li>
-                <li class="tab"><a class="active" href="benutzerdaten.html">Userdata</a></li>
-              </ul>
+                <ul class="tabs tabs-transparent" style="width: 100%;">
+                    <li class="tab" style="width: 50%"><a href="finanzen.html">Finance</a></li>
+                    <li class="tab" style="width: 50%"><a class="active" href="benutzerdaten.html">Userdata</a></li>
+                </ul>
             </div>
         </nav>
 
@@ -103,5 +103,15 @@
         <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-messaging.js"></script>
 
         <script src="js/index.js"></script>
+    
+        <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+        <script>
+            var mc = new Hammer(document);
+            mc.on("panleft panright", function (ev) {
+                if (ev.type === "panright") {
+                    window.location.href = "finanzen.html";
+                };
+            });
+        </script>
     </body>
 </html>
