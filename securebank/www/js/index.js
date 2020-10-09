@@ -33,8 +33,6 @@ function onDeviceReady() {
   if (typeof element != "undefined" && element != null) {
     element.innerHTML = "Version " + device.version;
   }
-
-  
 }
 
 const firebaseConfig = {
@@ -159,7 +157,7 @@ firebase
               .ref("kunden/" + 0 + "/kreditkarten/" + id + "/")
               .update({
                 spend: document.getElementById("kartenausgaben").value,
-                limit: document.getElementById("kartenlimite").value
+                limit: document.getElementById("kartenlimite").value,
               });
             var mymodal = M.Modal.getInstance($(".modal"));
             mymodal.close();
@@ -238,7 +236,7 @@ firebase
               .database()
               .ref("kunden/" + 0 + "/konten/" + id + "/")
               .update({
-                amount: document.getElementById("kontowert").value
+                amount: document.getElementById("kontowert").value,
               });
             var mymodal = M.Modal.getInstance($(".modal"));
             mymodal.close();
